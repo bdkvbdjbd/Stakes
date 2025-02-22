@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stake Mine Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Stake Mine Game</h1>
+
+        <!-- Sign-Up Form -->
+        <div id="signup-form">
+            <h2>Sign Up</h2>
+            <input type="email" id="signup-email" placeholder="Email" required>
+            <input type="password" id="signup-password" placeholder="Password" required>
+            <button id="signup-button">Sign Up</button>
+            <p>Already have an account? <a href="#" id="show-login">Log In</a></p>
+        </div>
+
+        <!-- Login Form -->
+        <div id="login-form" style="display: none;">
+            <h2>Log In</h2>
+            <input type="email" id="login-email" placeholder="Email" required>
+            <input type="password" id="login-password" placeholder="Password" required>
+            <button id="login-button">Log In</button>
+            <p>Don't have an account? <a href="#" id="show-signup">Sign Up</a></p>
+        </div>
+
+        <!-- Game Content (Hidden Until Logged In) -->
+        <div id="game-content" style="display: none;">
+            <p>Welcome, <span id="user-email"></span>!</p>
+            <p>Balance: <span id="balance">100</span> coins</p>
+            <p>Stake Amount: <input type="number" id="stakeAmount" min="1" value="10"></p>
+            <p>Multiplier: 
+                <select id="multiplier">
+                    <option value="1">1x</option>
+                    <option value="2">2x</option>
+                    <option value="3">3x</option>
+                    <option value="4">4x</option>
+                </select>
+            </p>
+            <button id="startButton">Start Game</button>
+            <button id="buyCoinsButton">Buy Coins</button>
+            <button id="adminButton">Admin Panel</button>
+            <div id="grid"></div>
+            <p id="message"></p>
+
+            <!-- Purchase Dialog -->
+            <div id="purchaseDialog" class="dialog">
+                <h2>Buy Coins</h2>
+                <p>Select a coin package:</p>
+                <div class="coin-package" data-amount="100" data-price="1.99">100 Coins - $1.99</div>
+                <div class="coin-package" data-amount="500" data-price="4.99">500 Coins - $4.99</div>
+                <div class="coin-package" data-amount="1000" data-price="9.99">1000 Coins - $9.99</div>
+                <button id="closeDialogButton">Close</button>
+            </div>
+
+            <!-- Admin Panel -->
+            <div id="adminPanel" class="dialog">
+                <h2>Admin Panel</h2>
+                <p>Enter Password: <input type="password" id="adminPassword"></p>
+                <button id="loginButton">Login</button>
+                <div id="adminControls" style="display: none;">
+                    <p>Grid Size: <input type="number" id="gridSize" min="3" max="10" value="5"></p>
+                    <p>Number of Mines: <input type="number" id="numMines" min="1" max="25" value="5"></p>
+                    <p>Reset Player Balance: <input type="number" id="resetBalance" min="0" value="100"></p>
+                    <button id="saveSettingsButton">Save Settings</button>
+                    <button id="closeAdminPanelButton">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
